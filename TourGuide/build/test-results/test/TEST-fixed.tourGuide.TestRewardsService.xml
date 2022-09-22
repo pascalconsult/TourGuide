@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fixed.tourGuide.TestRewardsService" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-09-22T07:46:53" hostname="PF" time="203.616">
+  <properties/>
+  <testcase name="usersGetRewards" classname="fixed.tourGuide.TestRewardsService" time="1.22"/>
+  <testcase name="highVolumeGetRewards" classname="fixed.tourGuide.TestRewardsService" time="202.395"/>
+  <system-out><![CDATA[09:46:53.876 [Test worker] DEBUG tourGuide.service.UserService - Initializing users
+09:46:53.880 [Test worker] DEBUG tourGuide.service.UserService - Created 0 internal test users.
+09:46:53.880 [Test worker] DEBUG tourGuide.service.UserService - Finished initializing users
+09:46:53.882 [Test worker] DEBUG tourGuide.service.UserService - Initialize tripPricer
+09:46:53.891 [pool-4-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 1 users.
+09:46:54.001 [pool-4-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker Time Elapsed: 0 seconds.
+09:46:54.001 [pool-4-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker sleeping
+09:46:54.923 [Test worker] DEBUG tourGuide.service.UserService - Initializing users
+09:46:56.685 [Test worker] DEBUG tourGuide.service.UserService - Created 100000 internal test users.
+09:46:56.685 [Test worker] DEBUG tourGuide.service.UserService - Finished initializing users
+09:46:56.686 [Test worker] DEBUG tourGuide.service.UserService - Initialize tripPricer
+09:46:56.979 [pool-8-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 100000 users.
+09:50:16.270 [pool-8-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker Time Elapsed: 199 seconds.
+09:50:16.274 [pool-8-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker sleeping
+Seconds ellapsed: 200
+]]></system-out>
+  <system-err><![CDATA[Sep 22, 2022 9:46:53 AM org.javamoney.moneta.DefaultMonetaryContextFactory createMonetaryContextNonNullConfig
+INFO: Using custom MathContext: precision=256, roundingMode=HALF_EVEN
+]]></system-err>
+</testsuite>

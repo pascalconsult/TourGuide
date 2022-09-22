@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import gpsUtil.location.VisitedLocation;
-import tripPricer.Provider;
 
 public class User {
+	
 	private final UUID userId;
 	private final String userName;
 	private String phoneNumber;
@@ -17,7 +19,8 @@ public class User {
 	private List<VisitedLocation> visitedLocations = new ArrayList<>();
 	private List<UserReward> userRewards = new ArrayList<>();
 	private UserPreferences userPreferences = new UserPreferences();
-	private List<Provider> tripDeals = new ArrayList<>();
+	private Lock userLocationListLock = new ReentrantLock();
+	
 	public User(UUID userId, String userName, String phoneNumber, String emailAddress) {
 		this.userId = userId;
 		this.userName = userName;
@@ -58,21 +61,28 @@ public class User {
 	}
 	
 	public void addToVisitedLocations(VisitedLocation visitedLocation) {
+		userLocationListLock.lock();
 		visitedLocations.add(visitedLocation);
+		userLocationListLock.unlock();
 	}
 	
 	public List<VisitedLocation> getVisitedLocations() {
-		return visitedLocations;
+		userLocationListLock.lock();
+		try {
+			return visitedLocations;
+		} finally {
+			userLocationListLock.unlock();
+		}
 	}
 	
 	public void clearVisitedLocations() {
+		userLocationListLock.lock();
 		visitedLocations.clear();
+		userLocationListLock.unlock();
 	}
 	
-	public void addUserReward(UserReward userReward) {
-		if(userRewards.stream().filter(r -> !r.attraction.attractionName.equals(userReward.attraction)).count() == 0) {
-			userRewards.add(userReward);
-		}
+	public synchronized void addUserReward(UserReward userReward) {
+		userRewards.add(userReward);
 	}
 	
 	public List<UserReward> getUserRewards() {
@@ -86,17 +96,4 @@ public class User {
 	public void setUserPreferences(UserPreferences userPreferences) {
 		this.userPreferences = userPreferences;
 	}
-
-	public VisitedLocation getLastVisitedLocation() {
-		return visitedLocations.get(visitedLocations.size() - 1);
-	}
-	
-	public void setTripDeals(List<Provider> tripDeals) {
-		this.tripDeals = tripDeals;
-	}
-	
-	public List<Provider> getTripDeals() {
-		return tripDeals;
-	}
-
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fixed.tourGuide.TestUserService" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-09-22T07:50:17" hostname="PF" time="4.062">
+  <properties/>
+  <testcase name="getUserLocation" classname="fixed.tourGuide.TestUserService" time="1.208"/>
+  <testcase name="highVolumeTrackLocation" classname="fixed.tourGuide.TestUserService" time="2.853"/>
+  <system-out><![CDATA[09:50:17.327 [Test worker] DEBUG tourGuide.service.UserService - Initializing users
+09:50:18.429 [Test worker] DEBUG tourGuide.service.UserService - Created 100000 internal test users.
+09:50:18.429 [Test worker] DEBUG tourGuide.service.UserService - Finished initializing users
+09:50:18.430 [Test worker] DEBUG tourGuide.service.UserService - Initialize tripPricer
+09:50:18.472 [pool-12-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 100000 users.
+09:50:18.536 [Test worker] DEBUG tourGuide.service.UserService - Initializing users
+09:50:18.557 [Test worker] DEBUG tourGuide.service.UserService - Created 1000 internal test users.
+09:50:18.557 [Test worker] DEBUG tourGuide.service.UserService - Finished initializing users
+09:50:18.558 [Test worker] DEBUG tourGuide.service.UserService - Initialize tripPricer
+09:50:18.559 [pool-16-thread-1] DEBUG tourGuide.tracker.Tracker - Begin Tracker. Tracking 1000 users.
+highVolumeTrackLocation: Time Elapsed: 2 seconds.
+09:50:21.387 [pool-16-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker Time Elapsed: 2 seconds.
+09:50:21.388 [pool-16-thread-1] DEBUG tourGuide.tracker.Tracker - Tracker sleeping
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
